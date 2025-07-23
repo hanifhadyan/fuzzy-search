@@ -19,7 +19,19 @@ dependencies {
     implementation 'io.quarkus:quarkus-oidc'
     implementation 'io.quarkus:quarkus-scheduler'
     implementation 'io.quarkus:quarkus-jdbc-postgresql'
+    implementation 'io.quarkus:quarkus-hibernate-orm'
+    implementation 'io.quarkus:quarkus-hibernate-orm-panache'
+    implementation 'io.quarkus:quarkus-flyway'
     implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-smallrye-openapi'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+
+    // Pagination support
+    implementation 'org.springframework.data:spring-data-commons:3.2.1'
+
+    // String utilities
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
+
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
 }
@@ -28,8 +40,8 @@ group 'han.org'
 version '1.0.0-SNAPSHOT'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 test {

@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: fuzzy_search_postgres
+    environment:
+      POSTGRES_DB: fuzzy_test_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5440:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - fuzzy_search_network
+
+volumes:
+  postgres_data:
+
+networks:
+  fuzzy_search_network:
+    driver: bridge
